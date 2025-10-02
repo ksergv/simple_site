@@ -1,0 +1,448 @@
+<!-- JOHN DOE’S PAGE - https://github.com/cadars/john-doe/ -->
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <title>simple_site</title>
+    <meta name="description" content="персональный сайт Сергея Краснуха">
+    
+    <!-- Recommended minimum -->
+    <meta property="og:title" content="Site title">
+    <meta property="og:description" content="Site description">
+    <meta property="og:image" content="img/DSCN1206.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- You could also inline the stylesheet -->
+    <link rel="stylesheet" href="Site title_files/style.css">
+      <!--Favicon-->
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <style>
+ /* ====== Кнопки ====== */
+button.addTimestamp,
+button.saveTimestamps,button.seekBack,
+button.seekForward{
+  padding: 8px 16px;
+  margin: 5px 5px 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #3498db; /* синий фон */
+  color: #fff;
+}
+
+
+/* hover эффект */
+button.addTimestamp:hover,button.seekBack:hover, 
+button.seekForward:hover {
+  background-color: #2980b9;
+}
+
+button.saveTimestamps:hover {
+  background-color: #27ae60;
+}
+
+/* активное состояние */
+button.addTimestamp:active,
+button.saveTimestamps:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* ====== Список меток ====== */
+.timestamps {
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+.timestamps .stamp {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 4px 4px 4px 0;
+  font-size: 13px;
+  border-radius: 5px;
+  background-color: #3739a8;
+  color: #e9e3e3;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timestamps .stamp:hover {
+  background-color: #3498db;
+  color: #fff;
+  transform: translateY(-2px);
+}
+.timestamps .stamp span:last-child {
+  font-weight: bold;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.timestamps .stamp span:last-child:hover {
+  color: #c0392b;
+  transform: scale(1.2);
+}
+.poster {
+  position: absolute;
+  top:0; left:0;
+  width: 100%; height:100%;
+  background: url('./lecture.jpg') center center/cover no-repeat;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+
+/* ====== Адаптивность ====== */
+@media screen and (max-width: 600px) {
+  button.addTimestamp,
+  button.saveTimestamps {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .timestamps .stamp {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+  </style>
+  </head>
+  <body>
+    
+    <header>
+     <a href="/" class="logo"></a>
+      <h1>
+        <a href="#home">Simple_site</a>
+      </h1>
+      <nav>
+      <a href="#about">Обо мне</a>
+        <a href="#news">Блог</a>
+        <a href="#portfolio">Публикации</a>
+        <a href="#video">Видео</a>
+      </nav>
+    </header>
+    
+    <main>
+      
+      <section id="home"> <!-- HOME -->
+        
+        <h2>
+          Привет! Вы на личном сайте Сергея Краснуха.
+        </h2>
+        <h3>Cайт создан только средствами HTML CSS на базе 
+
+<a href="https://john-doe.neocities.org/">John Doe’s page</a></h3>
+
+      </section>
+      
+      <section id="about"> <!-- ABOUT -->
+
+        <figure style="max-width:600px;width:fit-content; margin: 0 auto;opacity: 0.9; ">
+          <a href="#another-page">
+            <img 
+              loading="lazy"
+              alt=""
+              src="Site title_files/DSCN1206.JPG"
+              width="500"
+              height="180"
+            />
+          </a>
+          <figcaption >
+           <p>Мое фото. <a href="#another-page">Чем я занимаюсь?</a></p>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="another-page"> <!-- ANOTHER PAGE -->
+        
+        <p class="lead">Ну я же просто пенсионер. Делаю что хочу!</p>
+        <p><a href="#about">← Так что отстаньте!</a></p>
+        
+      </section>
+
+      <section id="news"> <!-- NEWS -->
+        
+      <article>
+
+          <h2> Блог С.Краснуха <time datetime="2025-08-26"></time>26.08.2025</time></h2>
+          <p> Всем привет! Это мой первый пост в блоге. Я рад начать это путешествие и делиться своими мыслями с вами. Оставайтесь на связи для получения обновлений и интересного контента!</p> 
+          <small>
+            
+            Вы можете использовать этот трюк с ссылками для <code>iframe</code> embeds too(?), а также youtube video.
+            
+           </small>
+    
+
+      
+          <h2>Блог С.Краснуха <time datetime="2025-09-27"></time>27.09.2025</time></h2>
+   <p>Эфир как основа матриального мира. <a href="#efir">Посмотреть</a>.</p>
+  
+          <h2>Блог С.Краснуха <time datetime="2025-09-27"></time>27.09.2025</time></h2>
+   <p> Карта уровней — Пустота → Инь-Ян → Виртуал → Образ → Реализация <a href="#cart">Посмотреть</a>.</p>
+
+     <h2>Блог С.Краснуха <time datetime="2025-09-29"></time>29.09.2025</time></h2>
+   <p> Гексаграммы пяти элементов <a href="#geks">Посмотреть</a>.</p>
+         </article>
+   
+      </section>
+
+      <section id="efir"> <!-- EFIR PAGE -->
+        
+         <article>
+          <h2>Блог С.Краснуха <time datetime="2025-09-26"></time>26.09.2025</time></h2>
+  
+<h2>Эфир как субстрат</h2>
+<p>В старых концепциях и в ряде эзотерических систем эфир описывается как субстрат всего сущего — невидимая основа, из которой проявляются материя и энергия. Его можно назвать «пустотой», но не в смысле отсутствия, а как потенциал. Это виртуальный уровень, аналогичный понятию ци: он существует, но не измерим прямыми приборами.</p>
+
+
+<h2>Ядро атома как плотная концентрация энергии</h2>
+<p>В физике ядро атома — это носитель основной массы. В метафизическом прочтении его можно рассматривать как точку максимальной концентрации энергии эфира. Таким образом, ядро становится символом материальной основы, из которой «вырастает» проявленный мир.</p>
+
+
+<h2>Электроны и электричество как проявление движения энергии</h2>
+<p>Электроны на периферии атома — это уже «разведённые» зоны энергии, которые в реальном мире проявляются как электричество. Они переводят виртуальность эфира в измеримый поток, создавая поле и потенциал.</p>
+
+
+<h2>Ци как поток энергии</h2>
+<p>Если ци — это поток энергии, то эфир можно считать средой ци, ядро — массой, а электроны/электричество — проявлением движения этой энергии на физическом уровне. Таким образом, виртуальная энергия (ци/эфир) проявляется через электрические эффекты на периферии.</p>
+
+
+<h2>Тёмная материя и тёмная энергия</h2>
+<p>С этой точки зрения можно интерпретировать:</p>
+<dl>
+<dt>Тёмная материя</dt>
+<dd>Структуры из ци, которые формируют невидимую «каркасную» массу Вселенной и создают гравитацию.</dd>
+<dt>Тёмная энергия</dt>
+<dd>Потоки ци в эфире, пронизывающие пространство и влияющие на его расширение.</dd>
+</dl>
+<p>Такой взгляд объединяет космологические явления с метафизическим уровнем — тёмная материя и энергия становятся разными состояниями одного и того же эфира/ци: структурированным (масса) и текучим (поток).</p>
+
+
+<h2>Философская аналогия</h2>
+<div class="analogy">
+<p><strong>Эфир</strong> = пустота, потенциал</p>
+<p><strong>Ядро атома</strong> = масса, центр концентрации</p>
+<p><strong>Электричество</strong> = текучая энергия, доступная восприятию</p>
+<p><strong>Тёмная материя</strong> = скрытые структуры ци, создающие гравитацию</p>
+<p><strong>Тёмная энергия</strong> = потоки ци в эфире, расширяющие пространство</p>
+</div>
+
+
+<h2>Заключение</h2>
+<p>Эта модель позволяет объединять метафизику (ци, эфир), физику (электричество, заряд) и космологию (тёмная материя, тёмная энергия) в единую систему, создавая понятную рамку для обсуждения того, как невидимые энергии могут быть связаны с измеримыми физическими процессами.</p>
+</article>       
+        
+      </section>
+        
+      <section id="cart"> <!-- CART PAGE -->
+  <h2>Блог С.Краснуха <time datetime="2025-09-28">28.09.2025</time></h2>
+
+  <iframe width="100%" height="600" src="./cart.html"></iframe>
+      </section>
+
+       <section id="geks"> <!-- GEKS PAGE -->
+  <h2>Блог С.Краснуха <time datetime="2025-09-28">28.09.2025</time></h2>
+
+  <iframe width="100%" height="600" src="./geks.html"></iframe>
+      </section>
+      
+      <section id="photos"> <!-- PHOTOS -->
+        
+        <p>An example of a photo gallery with a lightbox.</p>
+
+        <!-- You can use this grid of images in any page -->
+        
+        <div class="grid">
+          <a href="#img-01" ><img loading="lazy" alt="" src="Site title_files/DSCN1206.JPG" ></a>
+          <a href="#img-02"><img loading="lazy" alt="" src="Site title_files/yama.jpg"></a>
+         
+        </div>
+        
+      </section>
+      
+      <section id="photos"> <!-- PHOTOS -->
+        
+        <p>An example of a photo gallery with a lightbox.</p>
+
+        <!-- You can use this grid of images in any page -->
+        
+        <div class="grid">
+          <a href="#img-01" ><img loading="lazy" alt="" src="Site title_files/DSCN1206.JPG" ></a>
+          <a href="#img-02"><img loading="lazy" alt="" src="Site title_files/yama.jpg"></a>
+         
+        </div>
+        
+      </section>
+      
+      <section id="portfolio"> <!-- PORTFOLIO -->
+
+        <div class="slides">
+          
+          <figure style="background:#29ac6f;padding-top:50px;">
+           <article>
+          <h2>Физическое тело преобразуем в виртуальное <time datetime="2025-09-26"></time>26.09.2025</time></h2>
+         <p class="lead">Физическое тело сводится к энергии за счет повышения частоты(виртуальное тело над Байхуэй).<br><br>
+
+Включая тензор энергии(Инь-Ян Шар) в обратном направлении(против часовой стрелки) энергию возвращаем к информации и пустоте<br>
+
+
+Из пустоты возникли Огонь(Ян) и Земля(Инь) и из них родилось время(потенциал). Время породило прошлое- воду(Инь) и будущее- воздух(металл-Ян) из этих четырех родилось пятое - жизнь-дерево.<br>
+
+Время(потенциал)- это первичное сознание -свет пустоты-Сюй<br>
+
+Все цвета спектра образуются из трех основных цветов: красный,зеленый и синий. В концепции первоэлементов и соответствующих цветов органов в цигун присутствуют следующие цвета: красный, желтый, зеленый, белый и черный. А где же синий? Ответ - он растворен в каждом из цветов, так как представляет ум каждого органа.<br><br>
+ Следствие: ум растворен во всем, как отражение природы первичного сознания! 
+
+</p>
+</article>
+    </figure>
+
+       
+    <figure style="background:#10318b;padding-top:50px;">
+           <article>
+        <h2>Направление вращения инь-ян шара?</h2><br>
+
+  <p class="lead">Вращение по часовой стрелке- движение времени- прогресс на уровне реальности- превращение энергии ян в информацию-опыт-инь. Почему опыт-инь? Потому, что это инерция-торможение.<br>
+
+Вращение против часовой стрелки- обратное движение времени на уровне виртуальности- уничтожение инерции, разрушение структур и высвобождение энергии ян скрытой в структурах инь.<br>
+
+
+Какой же вывод для нас следует из стремления получить тело света- вернуться в виртуальность?<br>
+
+Очевидно, что в этом процессе весь наш опыт и знания полученные на уровне реальности инь будут уничтожены?<br>
+
+Да, но кроме опыта на уровне ян. А что это за опыт на уровне ян?<br>
+
+Ответ - опыт наработанный самой душой, которая изначально является частью виртуального мира. Все остальное должно быть отброшено иначе та часть инь, которая в нас остается после смерти снова вовлечет нас в этот круговорот жизни и смерти.<br></p>
+      
+      </article>
+      </figure>
+</div>
+      </section>
+        
+   
+
+  
+      <section id="video"> <!-- VIDEO -->
+ <div class="tube" id="tube1" data-video-id="Ca_cVKoi7Y0">
+    <div class="video-container">
+        <div class="player" id="player1"></div>
+        <div class="poster">▶️ Нажми для воспроизведения</div>
+    </div>
+    <button class="addTimestamp">Добавить метку</button>
+    <button class="saveTimestamps">Сохранить метки</button>
+    <button class="seekBack">⏪ -15 сек</button>
+    <button class="seekForward">⏩ +15 сек</button>
+    <div class="timestamps"></div>
+</div>
+
+       
+      </section>
+    </main>
+    
+    <footer>
+      <p>© 2025 Сергей Краснуха</p>
+
+<!-- API YouTube -->
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+function formatTime(seconds){
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+    if(h > 0) return `${h}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+    return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+const tubes = document.querySelectorAll('.tube');
+
+tubes.forEach(tube => {
+    const playerContainer = tube.querySelector('.player');
+    const poster = tube.querySelector('.poster');
+    const timestampsContainer = tube.querySelector('.timestamps');
+    const videoId = tube.dataset.videoId; // id видео в атрибуте data-video-id
+    let timestamps = JSON.parse(localStorage.getItem(tube.id) || '[]');
+    let player;
+
+    // Клик на заставку = создаём плеер
+    poster.addEventListener('click', () => {
+        poster.style.display = 'none';
+        player = new YT.Player(playerContainer.id, {
+            height: '315',
+            width: '560',
+            videoId: videoId,
+            playerVars: { rel:0, modestbranding:1 },
+        });
+    });
+
+    // Добавление метки
+    tube.querySelector('.addTimestamp')?.addEventListener('click', () => {
+        if(!player) return;
+        const title = prompt("Введите название метки:");
+        if(!title) return;
+        const time = Math.floor(player.getCurrentTime());
+        timestamps.push({time, title});
+        localStorage.setItem(tube.id, JSON.stringify(timestamps));
+        renderTimestamps();
+    });
+
+    // Сохранение меток
+    tube.querySelector('.saveTimestamps')?.addEventListener('click', () => {
+        localStorage.setItem(tube.id, JSON.stringify(timestamps));
+        alert("Метки сохранены в localStorage!");
+    });
+
+    // Перемотка
+    tube.querySelector('.seekBack')?.addEventListener('click', () => {
+        if(!player) return;
+        let t = player.getCurrentTime() - 15;
+        if(t<0) t=0;
+        player.seekTo(t,true);
+    });
+
+    tube.querySelector('.seekForward')?.addEventListener('click', () => {
+        if(!player) return;
+        player.seekTo(player.getCurrentTime()+15,true);
+    });
+
+    // Отрисовка меток
+    function renderTimestamps() {
+        timestampsContainer.innerHTML = '';
+        timestamps.forEach((t,i) => {
+            const btn = document.createElement('button');
+            btn.textContent = t.title + " (" + formatTime(t.time) + ")";
+            btn.style.color = "white";
+            btn.addEventListener('click', () => player.seekTo(t.time,true));
+
+            const del = document.createElement('button');
+            del.textContent = '❌';
+            del.className = 'delete';
+            del.addEventListener('click', () => {
+                timestamps.splice(i,1);
+                localStorage.setItem(tube.id, JSON.stringify(timestamps));
+                renderTimestamps();
+            });
+
+            const wrapper = document.createElement('div');
+            wrapper.className = "stamp";
+            wrapper.appendChild(btn);
+            wrapper.appendChild(del);
+            timestampsContainer.appendChild(wrapper);
+        });
+    }
+
+    // Отобразить метки при загрузке
+    renderTimestamps();
+});
+</script>
+
+
+
+</body></html>

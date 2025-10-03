@@ -2,9 +2,10 @@
   
   /* Color scheme */
   
-  --textcolor: #121212;
-  --bgcolor:#e8e8f7;;
-  --highlight: #2749c9;
+     --textcolor: #111010;
+    --bgcolor: #e8e8f7;;
+    --highlight: #ffc400;
+    background: var(--bgcolor);
 
 }
 

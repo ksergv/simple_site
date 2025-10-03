@@ -18,7 +18,37 @@
     <link rel="stylesheet" href="Site title_files/style.css">
       <!--Favicon-->
      <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <style>
+
+/* Скрываем верхний баннер перевода */
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+
+/* Стили для виджета */
+#google_translate_element {
+  display: inline-block !important;
+  margin: 0 20px;
+  height: 50px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.goog-te-combo {
+  background: #ffc400;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.goog-te-combo:hover {
+  background: #ffaa00;
+}
+
  /* ====== Кнопки ====== */
 button.addTimestamp,
 button.saveTimestamps,button.seekBack,
@@ -112,17 +142,36 @@ button.saveTimestamps:active {
     box-sizing: border-box;
   }
 }
-
+ .lang-switch button {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
   </style>
   </head>
   <body>
-    
+
     <header>
      <a href="/" class="logo"></a>
       <h1>
-        <a href="#home">Simple_site</a>
+        <a href="#home">Просто сайт!</a>
       </h1>
-      <nav>
+      <!-- Google Translate виджет -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'ru',
+    includedLanguages: 'en,uk,ru',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+
+      <!-- Навигация -->
+          <nav>
       <a href="#about">Обо мне</a>
         <a href="#news">Блог</a>
         <a href="#portfolio">Публикации</a>
@@ -134,12 +183,13 @@ button.saveTimestamps:active {
       
       <section id="home"> <!-- HOME -->
         
-        <h2 style="color: #ffc400;">
+       <h1>
           Привет! Вы на личном сайте Сергея Краснуха.
-        </h2>
-        <h3 style="color: var(--textcolor);">Cайт создан только средствами HTML CSS на базе 
+        </h1>
+        <h3 >Сайт создан только средствами HTML CSS на базе
 
-<a href="https://john-doe.neocities.org/">John Doe’s page</a></h3>
+<a style="color: rgb(168, 211, 49);" href="https://john-doe.neocities.org/">John Doe’s page</a></h3>
+
 
       </section>
       
@@ -442,6 +492,7 @@ tubes.forEach(tube => {
     renderTimestamps();
 });
 </script>
+
 
 
 

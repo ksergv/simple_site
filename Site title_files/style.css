@@ -125,7 +125,7 @@ header a:hover, nav a:hover {
 a {
   text-decoration: none;
   background: transparent; /* явно прозрачный фон */
-  color: var(--highlight);
+  color: blue
 }
 
 a:hover {

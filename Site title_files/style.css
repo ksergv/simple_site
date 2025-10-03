@@ -363,6 +363,12 @@ figure {
   margin: 0 auto;
  opacity: 1.0;
 }
+figure article {
+  margin: 0;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
 
 figure figcaption {
   margin: -1.5em 0 0 0;

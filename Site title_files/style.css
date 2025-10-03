@@ -364,10 +364,11 @@ figure {
  opacity: 1.0;
 }
 figure article {
-  margin: 0;
+  margin: 10px auto;
   height: auto;
   width: auto;
   max-width: 100%;
+  overflow-y: scroll;
 }
 
 figure figcaption {
@@ -490,7 +491,7 @@ article time {
 
 .slides {
   position: fixed;
-  top: 32px;
+  top: 60px;
   left: 0;
   right: 0;
   height: 100vh;
@@ -506,6 +507,12 @@ article time {
   place-items: center;
   align-content: center;
   scroll-snap-align: center;
+}
+.slides   figure article{
+  height: 80vh;
+  padding: 2vw 5vw;
+  margin: 0;
+
 }
 
 .slides figure img {
@@ -586,6 +593,12 @@ article time {
 
 @media only screen and (max-width: 680px) {
   body { font-size: 16px; }
+ header { height: 80px; }
+  header h1 { font-size: 1.2em; padding: 0 3vw .5em 0; }
+  nav { font-size: 1em; }
+  section { padding: calc(5em + 5vw) 5vw 6vw 5vw; }
+article { padding:2% 3%;  }
+
 }
 
 @media only screen and (max-width: 540px) {

@@ -124,6 +124,7 @@ header a:hover, nav a:hover {
 
 a {
   text-decoration: none;
+  font-size: large;
   color: rgb(44, 10, 236);
   padding:  .3em;
   border-bottom: 3px solid transparent;

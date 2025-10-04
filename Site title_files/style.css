@@ -351,11 +351,11 @@ label {
   line-height: 1;
   font-size: .75em;
   padding-left: .1em;
-  color: cyan;
+  color: var(--highlight);
 }
 
 label:hover {
-  color: var(--highlight);
+  color: var(--linkcolor);
 }
 
 label:before {content:"[";}

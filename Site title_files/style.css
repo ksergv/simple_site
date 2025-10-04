@@ -377,6 +377,69 @@ figure figcaption {
   opacity: .7;
 }
 
+/* Horizontal carousel */
+.carousel {
+  padding: 20px 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 20px;
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
+  overflow-x: auto;      /* 👈 горизонтальная прокрутка */
+  overflow-y: hidden;
+  overscroll-behavior-x: none;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  padding: 20px;
+  height: 500px;
+  border-radius: 16px;
+  background-color: #f2f2f2;
+  scroll-snap-align: start;
+  overflow-y: auto;      /* лучше auto чем scroll */
+  position: relative;    /* теперь можно прикрепить стрелки */
+}
+
+.carousel-item h2 {
+  position: relative;
+  text-align: center; /* чтобы стрелки были по центру */
+  margin-bottom: 40px;
+}
+
+.carousel-item h2::after {
+  content: " Горизонтальная прокрутка ⇠ ⇢";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 5px);   /* сразу под заголовком */
+  font-size: 20px;
+  color: rgba(0,0,0,0.6);
+  animation: swipeHint 1.5s infinite alternate;
+}
+
+@keyframes swipeHint {
+  from { transform: translateX(-60%); }
+  to   { transform: translateX(-40%); }
+}
+
+
+
+
+
+
+.carousel-item  p {
+  font-size: 1.2em;
+  line-height: 1.4;
+  overflow-y: auto;
+  max-height: 100%;
+   color: var(--textcolor);
+  background: transparent; /* явно прозрачный фон */
+   margin: 0 auto;  /* auto слева и справа */
+}
 /* Responsive video embeds */
 
 figure.video {

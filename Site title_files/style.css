@@ -14,6 +14,7 @@
 html, body {
   background: var(--bgcolor);
   color: var(--textcolor);
+   scroll-behavior: smooth;
 }
 
 body:has(input#light:checked) {
@@ -71,7 +72,7 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  scroll-margin-top: 60px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -129,6 +130,78 @@ header a, nav a {
 }
 header a:hover, nav a:hover {
   border-bottom: 1px solid silver;
+}
+<!-- ------- Dialog --------->
+.some{
+  position: relative;
+  z-index: 1000;
+}
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 30px 40px;
+  min-width: min(100%, 600px);
+  position: fixed;
+  top: 50vh;
+  left: 50%;
+  margin: 0 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.2);
+  background: var(--bgcolor);
+  color: var(--textcolor);
+
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: all .3s linear;
+}
+
+dialog[open] {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: translate(0, 50px);
+  }
+}
+
+/* Text clamp */
+.clamp-toggle {
+  border: 1px solid silver;
+  border-radius: 8px;
+  color:var(--textcolor);
+  background: var(--bgcolor);
+  padding:2% 5%;
+  margin: 0 auto;  /* auto слева и справа */
+}
+.clamp-toggle p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient:vertical;  
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.clamp-toggle input[type=checkbox] {
+  display: none;
+}
+
+.clamp-toggle label::after {
+  content: 'Раскрыть'
+}
+
+.clamp-toggle:has(input[type=checkbox]:checked) p {
+  display: block;
+}
+
+.clamp-toggle:has(input[type=checkbox]:checked) label::after {
+  content: 'Скрыть'
 }
 
 /* ------- General ------- */

@@ -16,138 +16,12 @@
     
     <!-- You could also inline the stylesheet -->
     <link rel="stylesheet" href="Site title_files/style.css">
+     <link rel="stylesheet" href="Site title_files/video.css">
       <!--Favicon-->
      <link rel="icon" href="favicon.ico" type="image/x-icon">
 
      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        <style>
-
-/* Скрываем верхний баннер перевода */
-.goog-te-banner-frame.skiptranslate { display: none !important; }
-body { top: 0 !important; }
-
-/* Стили для виджета */
-#google_translate_element {
-  display: inline-block !important;
-  margin: 0 20px;
-  height: 50px;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.goog-te-combo {
-  background: #ffc400;
-  color: #000;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.goog-te-combo:hover {
-  background: #ffaa00;
-}
-
- /* ====== Кнопки ====== */
-button.addTimestamp,
-button.saveTimestamps,button.seekBack,
-button.seekForward{
-  padding: 8px 16px;
-  margin: 5px 5px 10px 0;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background-color: #3498db; /* синий фон */
-  color: #fff;
-}
-
-
-/* hover эффект */
-button.addTimestamp:hover,button.seekBack:hover, 
-button.seekForward:hover {
-  background-color: #2980b9;
-}
-
-button.saveTimestamps:hover {
-  background-color: #27ae60;
-}
-
-/* активное состояние */
-button.addTimestamp:active,
-button.saveTimestamps:active {
-  transform: scale(0.97);
-  opacity: 0.9;
-}
-
-/* ====== Список меток ====== */
-.timestamps {
-  margin-top: 10px;
-  padding-left: 0;
-}
-
-.timestamps .stamp {
-  display: inline-block;
-  padding: 6px 10px;
-  margin: 4px 4px 4px 0;
-  font-size: 13px;
-  border-radius: 5px;
-  background-color: #3739a8;
-  color: #e9e3e3;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.timestamps .stamp:hover {
-  background-color: #3498db;
-  color: #fff;
-  transform: translateY(-2px);
-}
-.timestamps .stamp span:last-child {
-  font-weight: bold;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.timestamps .stamp span:last-child:hover {
-  color: #c0392b;
-  transform: scale(1.2);
-}
-.poster {
-  position: absolute;
-  top:0; left:0;
-  width: 100%; height:100%;
-  background: url('./lecture.jpg') center center/cover no-repeat;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-  text-shadow: 0 0 5px black;
-}
-
-
-/* ====== Адаптивность ====== */
-@media screen and (max-width: 600px) {
-  button.addTimestamp,
-  button.saveTimestamps {
-    width: 100%;
-    margin-bottom: 8px;
-  }
-  .timestamps .stamp {
-    width: 100%;
-    box-sizing: border-box;
-  }
-}
- .lang-switch button {
-      margin: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-  </style>
+ 
   </head>
   <body>
 
@@ -715,8 +589,28 @@ function googleTranslateElementInit() {
     <button class="seekForward">⏩ +15 сек</button>
     <div class="timestamps"></div>
 </div>
+<div class="tube"> <!-- Второе видео с превью  если есть запрет на встраивание-->
+ <h2>
+    <time datetime="2025-10-06">06.10.2025</time>
+    Связь иммунитета с сознанием, как очистить негативные образы и программы своего ума (EN/RU)
+  </h2>
+<div class="yt-poster" style="position: relative; width:560px; height:315px; cursor:pointer;">
+  <img src="https://img.youtube.com/vi/fF4Hf_TI0xA/hqdefault.jpg" 
+       alt="Видео превью" style="width:100%; height:100%; object-fit:cover;">
+  <div style="position:absolute;top:50%;left:50%;
+              transform:translate(-50%,-50%);
+              font-size:48px;color:white;">▶️</div>
+              Не встраивается! Смотреть только на YouTube!
+</div>
+</div>
 
-       
+<script>
+document.querySelector(".yt-poster").onclick = function() {
+  window.open("https://www.youtube.com/watch?v=fF4Hf_TI0xA", "_blank");
+};
+</script>
+
+
       </section>
     </main>
 

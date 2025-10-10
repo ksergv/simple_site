@@ -254,7 +254,7 @@ dl, dt, dd {
    color: #090614;
 }
 article {
-  max-width: none;
+  max-width: 100%;
   width: 100%;
   margin-bottom: .6em;
   border: 1px solid silver;
@@ -264,12 +264,15 @@ article {
   padding:2% 5%;
   margin: 0 auto;  /* auto слева и справа */
 }
-article p{
-  font-size: 1.1em;
+article p,
+article li {
+  width: 90%;
+  margin: 0 auto;
   line-height: 1.4;
   color: var(--textcolor);
-
+  text-align: justify/* если хочешь центрировать текст */
 }
+
 
 
 .tube {

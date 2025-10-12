@@ -210,7 +210,12 @@ function googleTranslateElementInit() {
 
          <section id="notes"> <!-- NOTES PAGE -->
         <article>
-        <p> <a hx-get="notes-viewer.html" hx-target="#content_notes-viewer">Развернуть</a></p> <br>
+        <p> <a 
+          hx-get="notes-viewer.html"
+          hx-target="#content_notes-viewer"
+          hx-trigger="click"
+          onclick="this.style.display='none';
+          document.getElementById('content_notes-viewer').style.display='block';">Развернуть</a></p> <br>
           <div id="content_notes-viewer"></div>
          </article>
       </section>

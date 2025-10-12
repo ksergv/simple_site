@@ -1,0 +1,139 @@
+<!-- notes-viewer.html -->
+<div class="notes-viewer">
+  <h2>📓 Заметки</h2>
+  <p class="muted">Кликните по заголовку, чтобы открыть заметку.</p><br>
+
+  <div class="notes-header" id="notesHeader">
+    <div class="muted">Загрузка списка заметок...</div>
+  </div>
+
+  <div id="noteContent">Здесь появится содержимое заметки.</div>
+</div>
+
+<style>
+
+  :root {
+    --bgcolor: #f5f5f5;
+    --textcolor: #0a0a0a;
+    --highlight: #ffc400;
+
+  }
+
+  [data-theme="dark"] {
+    --bgcolor: #111;
+    --textcolor: #ddd;
+    --highlight: #ffc400;
+
+  }
+
+  body {
+    background: var(--bgcolor);
+    color: var(--textcolor);
+    font-family: monospace;
+    padding: 10px;
+  }
+.notes-viewer {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--textcolor);
+  background: var(--bgcolor);
+  padding: 12px;
+  border-radius: 8px;
+}
+.notes-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.note-title {
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-family: monospace;
+}
+.note-title:hover {
+  background-color: #0078d4;
+  color: #fff;
+  border-color: #005a9e;
+}
+.note-title.selected {
+  background-color: #005a9e;
+  color: #fff;
+  border-color: #003f6b;
+}
+#noteContent {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-height: 200px;
+  color: var(--textcolor);
+  background: var(--bgcolor);
+}
+.muted { 
+    color:var(--textcolor);
+    background: var(--bgcolor);
+     font-size:13px; }
+</style>
+
+<script>
+const notesHeader = document.getElementById('notesHeader');
+const noteContent = document.getElementById('noteContent');
+
+async function loadNotesList() {
+  try {
+    const resp = await fetch('notes/list.json?_=' + Date.now());
+    if (!resp.ok) throw new Error('Не удалось загрузить список');
+    const notesFiles = await resp.json();
+    renderNotesHeader(notesFiles);
+  } catch (err) {
+    notesHeader.innerHTML = `<div style="color:red;">Ошибка: ${err.message}</div>`;
+  }
+}
+
+function renderNotesHeader(notesFiles){
+  notesHeader.innerHTML = '';
+  if (notesFiles.length === 0) {
+    notesHeader.innerHTML = '<div class="muted">Нет заметок</div>';
+    return;
+  }
+  notesFiles.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'note-title';
+    div.textContent = `<${item.title}>`;
+    div.title = item.file;
+    div.addEventListener('click', () => {
+      document.querySelectorAll('.note-title').forEach(el => el.classList.remove('selected'));
+      div.classList.add('selected');
+      openNote(item.file);
+    });
+    notesHeader.appendChild(div);
+  });
+}
+
+async function openNote(filename){
+  try {
+    const resp = await fetch('notes/' + filename + '?_=' + Date.now());
+    if (!resp.ok) throw new Error('Файл не найден');
+    const text = await resp.text();
+    noteContent.innerHTML = text;
+  } catch (err) {
+    noteContent.innerHTML = `<div style="color:red;">Ошибка: ${err.message}</div>`;
+  }
+}
+
+// Поддержка твоей системы тем
+document.addEventListener('change', (e) => {
+  if (e.target.name === 'theme-toggle') {
+    document.documentElement.setAttribute('data-theme', e.target.value);
+  }
+});
+const currentTheme = document.querySelector('input[name="theme-toggle"]:checked');
+if (currentTheme) {
+  document.documentElement.setAttribute('data-theme', currentTheme.value);
+}
+// инициализация при вставке HTMX
+loadNotesList();
+</script>

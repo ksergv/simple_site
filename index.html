@@ -59,6 +59,7 @@ function googleTranslateElementInit() {
         <a href="#news">Блог</a>
         <a href="#portfolio">Публикации</a>
         <a href="#video">Видео</a>
+        <a href="#notes">Заметки</a>
       </nav>
     </header>
     
@@ -206,20 +207,13 @@ function googleTranslateElementInit() {
       </article>
   
       </section>
-      <section id="photos"> <!-- PHOTOS -->
-        
-        <p>An example of a photo gallery with a lightbox.</p>
 
-        <!-- You can use this grid of images in any page -->
-        
-        <div class="grid">
-          <a href="#img-01" ><img loading="lazy" alt="" src="Site title_files/DSCN1206.JPG" ></a>
-          <a href="#img-02"><img loading="lazy" alt="" src="Site title_files/yama.jpg"></a>
-         
-        </div>
-        
+         <section id="notes"> <!-- NOTES PAGE -->
+        <article>
+        <p> <a hx-get="notes-viewer.html" hx-target="#content_notes-viewer">Развернуть</a></p> <br>
+          <div id="content_notes-viewer"></div>
+         </article>
       </section>
-      
      
       
       <section id="portfolio"> <!-- PORTFOLIO -->

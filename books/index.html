@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Книги в HTMX (без JS-хелпера)</title>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+  <script src="https://unpkg.com/mustache@latest"></script>
+
+  <style>
+    :root {
+   --highlight: #ffc400; /* жёлтый */
+     --linkcolor:  #1E90FF;
+  
+    color-scheme: light dark;
+    --textcolor: light-dark(#000000, #FFFFFF);
+    --bgcolor: light-dark(#FFFFFF, #000000);
+    --titlecolor: light-dark(#dd2a12, #cde01b);
+  
+}
+    body {
+      font-family: sans-serif;
+      background: var(--bgcolor);
+      color: var(--textcolor);
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+    nav {
+      width: 200px;
+      border-right: 1px solid #333;
+      padding-right: 10px;
+    }
+    h3, h2 { color: #ffc400; }
+    button, a {
+      background: #222;
+      color: #fff;
+      border: none;
+      display: block;
+      margin: 5px 0;
+      padding: 8px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    button:hover, a:hover { background: #444; }
+    .chapter-content { display: none; padding: 5px 10px; }
+    .chapter.open .chapter-content { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Меню книг -->
+  <nav>
+    <h3>Книги</h3>
+    <div
+      hx-get="books/index.json"
+      hx-ext="client-side-templates"
+      hx-trigger="load"
+      mustache-template="book-list-template"
+      hx-target="this"
+      hx-swap="innerHTML">
+      Загрузка...
+    </div>
+  </nav>
+
+  <!-- Контент -->
+  <section id="content">
+    <p>Выберите книгу, чтобы начать чтение.</p>
+  </section>
+
+  <!-- Шаблон списка книг -->
+  <template id="book-list-template" type="text/mustache">
+    <ul>
+      {{#books}}
+        <li>
+          <a href="#"
+             hx-get="books/{{file}}"
+             hx-ext="client-side-templates"
+             mustache-template="chapter-list-template"
+             hx-target="#content"
+             hx-swap="innerHTML">
+            {{title}}
+          </a>
+        </li>
+      {{/books}}
+    </ul>
+  </template>
+
+  <!-- Шаблон аккордеона глав книги -->
+  <template id="chapter-list-template" type="text/mustache">
+    <h2>Главы книги: {{title}}</h2>
+    {{#chapters}}
+      <div class="chapter">
+        <button onclick="this.parentNode.classList.toggle('open')">{{title}}</button>
+        <div class="chapter-content">{{{content}}}</div>
+      </div>
+    {{/chapters}}
+  </template>
+
+</body>
+</html>
